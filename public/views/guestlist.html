@@ -1,0 +1,23 @@
+<h1>guestlist</h1>
+
+<div class="form">
+    <input ng-model="newGuest">
+    <button ng-click="add(newGuest)">Add</button>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>RSVP</th>
+            <th>ID</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="guest in guests track by $index | orderBy: 'name'">
+            <td>{{guest.name}}</td>
+            <td>{{guest.rsvp}}</td>
+            <td>{{guest.id}}</td>
+        </tr>
+    </tbody>
+</table>
