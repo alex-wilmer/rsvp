@@ -1,1 +1,14 @@
-guest view
+<div ng-show="loaded">
+	<h1>Welcome {{guest.name}}</h1><br>
+	<h2>Information:</h2>
+	<button ng-show="guest.rsvp=='pending'" ng-click="rsvp(guest);guest.rsvp='accepted'">
+		<h2>Accept</h2>
+	</button>
+	<button ng-show="guest.rsvp=='pending'" ng-click="rsvp(guest);guest.rsvp='declined'">
+		<h2>Decline</h2>
+	</button>
+	<h2 ng-show="guest.rsvp!='pending'">Thank you!</h2>
+	
+</div>
+
+

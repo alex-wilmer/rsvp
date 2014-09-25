@@ -6,39 +6,52 @@ module.exports = function(app) {
 	// handle things like api calls
 	// authentication routes
 
-	// sample api route
 	app.get('/api/guests', function(req, res) {
-		// use mongoose to get all guests in the database
 		Guest.find(function(err, guests) {
-
-			// if there is an error retrieving, send the error. nothing after res.send(err) will execute
 			if (err)
 				res.send(err)
-
-			res.json(guests) // return all guests in JSON format
+			res.json(guests) 
 		})
 	})
 
 	app.post('/api/guests', function(req, res) {
 		var guest = new Guest()
 		guest.name = req.body.name
-		guest.rsvp = false
+		guest.rsvp = req.body.rsvp
+		guest.ticket = req.body.ticket
 		guest.save(function(err) {
 			if (err) 
 				res.send(err)
 			res.json({ message: 'Guest created!'})
 		})
 	})
-	// route to handle delete (app.delete)
 
-	app.delete('/api/guests/:guestID', function(req, res) {
-		Guest.remove({
-			_id: req.params.guestID
-		}, function(err, bear) {
+	app.get('/api/guests/:ticket', function(req, res) {
+		Guest.find({ticket: req.params.ticket}, function(err, guest) {
+			if (err)
+				res.send(err)
+			res.json(guest)
+		})
+	})
+
+	app.put('/api/guests/:guestID', function(req, res) {
+		Guest.findById(req.params.guestID, function(err, guest) {
+			if (err)
+				res.send(err)
+			guest.rsvp = req.body.rsvp
+			guest.save(function(err) {
+				if (err)
+					res.send(err)
+				res.json({ message: 'Guest RSVP Successful!' })
+			})
+		})
+	})
+
+	app.delete('/api/guests/:guest_id', function(req, res) {
+		Guest.remove({_id: req.params.guest_id}, function(err, bear) {
 			if (err)
 				res.send(err);
-
-			res.json({ message: 'Successfully deleted' });
+			res.json({ message: 'Successfully deleted.' });
 		});
 	})
 
@@ -49,4 +62,9 @@ module.exports = function(app) {
 	});
 
 };
+
+//UTILITY
+function pad(num, size) {     
+	return ('000' + num).substr(-size); 
+}
 

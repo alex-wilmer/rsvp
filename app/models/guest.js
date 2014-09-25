@@ -5,7 +5,8 @@ var Schema   = mongoose.Schema;
 
 var Guest = new Schema({
 	name: String,
-	rsvp: Boolean
+	rsvp: String,
+	ticket: Number
 });
 
 module.exports = mongoose.model('Guest', Guest);

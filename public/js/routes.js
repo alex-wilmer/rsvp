@@ -9,7 +9,7 @@ angular.module('Routes', [])
 			templateUrl: 'views/guestlist.html',
 			controller: 'GuestList',
 		})
-		.when('/:guest', {
+		.when('/:ticket', {
 			templateUrl: 'views/guest.html',
 			controller: 'Guest'	
 		})

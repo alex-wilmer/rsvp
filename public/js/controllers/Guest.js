@@ -1,7 +1,11 @@
-angular.module('Guest', []).controller('Guest', function($scope, $routeParams) {
+angular.module('Guest', []).controller('Guest', function($scope, $http, $routeParams) {
 
-	if ($routeParams.guest != 'guest') {
-		window.location.href = '/'
+	$http.get('/api/guests/' + $routeParams.ticket).success(function(data) {
+		$scope.guest = data[0]
+		$scope.loaded = true
+	})
+
+	$scope.rsvp = function(guest) {
+		$http.put('/api/guests/' + guest._id, guest)
 	}
-
 });

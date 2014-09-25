@@ -1,13 +1,4 @@
-/*
- * Import nib
- */
-/*
- * Grab a custom font from Google
- */
 @import url("http://fonts.googleapis.com/css?family=Poiret+One");
-/*
- * Nib provides a CSS reset
- */
 html,
 body,
 div,
@@ -119,8 +110,49 @@ h1 {
 h2 {
   font-size: 2em;
 }
-.form {
-  padding-top: 20px;
+a {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+a:hover {
+  color: #f878f8;
+}
+.totals {
+  float: left;
+  text-align: left;
+  margin: 10px;
+}
+.totals span {
+  font-family: 'Helvetica';
+  display: inline-block;
+}
+.totals span {
+  padding: 4px;
+}
+.inputs {
+  float: right;
+}
+.inputs input {
+  display: inline block;
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  border: 1px solid;
+  padding: 5px;
+  margin: 10px;
+  font-size: 1.1em;
+}
+.inputs input::-webkit-input-placeholder {
+  color: #fff;
+}
+.inputs input:-moz-placeholder {
+  color: #fff;
+}
+.inputs input::-moz-placeholder {
+  color: #fff;
+}
+.inputs input:-ms-input-placeholder {
+  color: #fff;
 }
 table {
   width: 100%;
@@ -136,8 +168,14 @@ th:first-child {
 td:nth-child(2),
 th:nth-child(2),
 td:nth-child(3),
-th:nth-child(3) {
+th:nth-child(3),
+td:nth-child(4),
+th:nth-child(4) {
   text-align: center;
+}
+td:last-child,
+th:last-child {
+  float: right;
 }
 td {
   padding-top: 10px;
