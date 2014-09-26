@@ -5,7 +5,7 @@ angular.module('Guest', []).controller('Guest', function($scope, $http, $routePa
 		$scope.loaded = true
 	})
 
-	$scope.rsvp = function(guest) {
+	$scope.save = function(guest) {
 		$http.put('/api/guests/' + guest._id, guest)
 	}
-});
+})

@@ -4,7 +4,7 @@ var express        = require('express')
   , bodyParser     = require('body-parser')
   , methodOverride = require('method-override')
   , stylus         = require('stylus')
-  , nib			   = require('nib')
+  , nib			       = require('nib')
 
 function compile(str, path) {
   return stylus(str)

@@ -1,7 +1,8 @@
 angular.module('GuestList', []).controller('GuestList', function($scope, $http) {
 
-	$scope.newguest = "New Guest.."
+	$scope.newguest = "New guest.."
 	$scope.find = "Find.."
+	$scope.openMessage = false
 
 	//get list of guests
 	$http.get('/api/guests').success(function(guests){
@@ -15,6 +16,7 @@ angular.module('GuestList', []).controller('GuestList', function($scope, $http) 
 			name: name
 		  ,	rsvp: 'pending'
 		  , ticket: pad(Math.floor((Math.random() * 10000) + 1), 4)
+		  , message: undefined
 		}
 
 		// update client
@@ -33,6 +35,15 @@ angular.module('GuestList', []).controller('GuestList', function($scope, $http) 
 		$http.delete('/api/guests/' + id).success(function() {
 			console.log("Guest Deleted.")
 		})
+	}
+
+	$scope.viewMessage = function(message) {
+		$scope.openMessage = true
+		$scope.message = message
+	}
+
+	$scope.closeMessage = function() {
+		$scope.openMessage = false
 	}
 
 })

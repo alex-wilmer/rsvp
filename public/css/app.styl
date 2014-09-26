@@ -4,22 +4,24 @@
 global-reset()
 
 body
-  background url(/img/space.jpg) no-repeat center center fixed
+  background-color wheat
   background-size cover
-  font-family 'Poiret One'
   color white
-  text-align center
+  font-family 'Helvetica'
 
 .container
   padding-top 50px
   max-width 800px
   margin 0 auto
+  text-align center
 
 h1
   font-size 3em
+  font-family 'Poiret One'
 
 h2
   font-size 2em
+  font-family 'Poiret One'
 
 a
   color white
@@ -34,7 +36,6 @@ a:hover
   text-align left
   margin 10px
   span
-    font-family 'Helvetica'
     display inline-block
   span
   	padding 4px
@@ -51,10 +52,18 @@ a:hover
     font-size 1.1em
     placeholder(color white,)
 
+textarea
+	margin-top 20px
+	background-color rgba(0,0,0,0.5)
+	color white
+	width 80%
+	height 300px
+	font-size 1.15em
+	padding 20px
+
 table 
   width 100%
   padding 50px
-  font-family 'Helvetica'
 
 th
   font-weight bold
@@ -72,3 +81,21 @@ td:last-child, th:last-child
 
 td
   padding-top 10px
+
+.outer-box
+  width 100%
+  height 100%
+  background-color rgba(0, 0, 0, 0.5)
+.inner-box 
+  width 500px
+  height 425px
+  padding 20px
+  background-color rgba(0, 0, 0, 0.8)
+  border 2px solid white
+.absolute-center
+  margin auto
+  position absolute
+  top 0 
+  left 0 
+  bottom 0
+  right 0

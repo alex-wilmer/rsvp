@@ -1,41 +1,71 @@
 <h1>guestlist</h1>
 
 <div class="inputs">
-    <form ng-submit="add(newGuest);newGuest=''">
-        <input ng-model="newGuest" ng-focus="newguest=''" placeholder="{{newguest}}">
+    <form ng-submit="add(newGuest); newGuest = ''">
+        <input ng-model    = "newGuest" 
+               ng-focus    = "newguest = ''" 
+               ng-blur     = "newguest = 'New guest..'"
+               placeholder = "{{newguest}}">
     </form>
 
-    <input ng-model="keyword" ng-focus="find=''" placeholder="{{find}}">
+    <input ng-model    = "keyword" 
+           ng-focus    = "find = ''" 
+           ng-blur     = "find = 'Find..'"
+           placeholder = "{{find}}">
 </div>
 
 <div class="totals">
-    <span>Invited: {{guests.length}}</span><br>
-    <span>Pending: {{totals.pending}}</span><br>
+    <span>Invited:  {{guests.length}}  </span><br>
+    <span>Pending:  {{totals.pending}} </span><br>
     <span>Accepted: {{totals.accepted}}</span><br>
-    <span>Declined: {{totals.declined}}</span><br>
+    <span>Declined: {{totals.declined}}</span>
 </div>
 
 <table>
     <thead>
         <tr>
-            <th>Name</th>
-            <th>RSVP</th>
-            <th>Message</th>
+            <th>Name      </th>
+            <th>RSVP      </th>
+            <th>Message   </th>
             <th>Ticket No.</th>
-            <th>Delete</th>
+            <th>Delete    </th>
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="guest in guests | orderBy: 'name' | filter: keyword"
-            ng-hide="guest.deleted">
-            <td><a ng-href="/{{guest.ticket}}">{{guest.name}}</a></td>
+        <tr ng-repeat = "guest in guests | 
+                         orderBy: 'name' | 
+                         filter: keyword"
+            ng-hide   = "guest.deleted">
+            <td>
+                <a ng-href="/{{guest.ticket}}">
+                   {{guest.name}}
+                </a>
+            </td>
             <td>{{guest.rsvp | check}}</td>
-            <td><a>Message</a>
+            <td>
+                <a ng-show  = "!!guest.message.length"
+                   ng-click = "viewMessage(guest.message)">
+                   view 
+                </a>
+            </td>
             <td>{{guest.ticket}}</td>
             <td>
-                <button ng-click="remove(guest._id);guest.deleted=true"> x
+                <button ng-click="remove(guest._id);
+                                  guest.deleted=true"> 
+                        x
                 </button>
             </td>
         </tr>
     </tbody>
 </table>
+
+<!--Alex's Lightbox-->
+<div class    = "outer-box absolute-center"
+     ng-show  = "openMessage" 
+     ng-click = "closeMessage()">
+    <div class="inner-box absolute-center">
+        <h2>Message</h2>
+        <hr>
+        {{message}}
+    </div>
+</div>

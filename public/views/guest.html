@@ -1,14 +1,27 @@
 <div ng-show="loaded">
-	<h1>Welcome {{guest.name}}</h1><br>
+	<h1>Welcome {{guest.name}}</h1>
 	<h2>Information:</h2>
-	<button ng-show="guest.rsvp=='pending'" ng-click="rsvp(guest);guest.rsvp='accepted'">
+	<button ng-show="guest.rsvp == 'pending'" 
+	        ng-click="guest.rsvp = 'accepted'; save(guest)">
 		<h2>Accept</h2>
 	</button>
-	<button ng-show="guest.rsvp=='pending'" ng-click="rsvp(guest);guest.rsvp='declined'">
+	<button ng-show="guest.rsvp == 'pending'" 
+	        ng-click="guest.rsvp = 'declined'; save(guest)">
 		<h2>Decline</h2>
 	</button>
-	<h2 ng-show="guest.rsvp!='pending'">Thank you!</h2>
-	
+	<div ng-show="guest.rsvp != 'pending'">
+		<h2 >Thank you!</h2>
+		<div ng-hide="!!guest.message.length">
+			<textarea ng-model="message" 
+			          placeholder="Leave a message..">
+				{{guest.message}}
+			</textarea>
+			<br>
+			<button ng-click="guest.message = message; save(guest)">
+				Send
+			</button>
+		</div>
+	</div>
 </div>
 
 

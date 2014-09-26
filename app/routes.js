@@ -19,6 +19,7 @@ module.exports = function(app) {
 		guest.name = req.body.name
 		guest.rsvp = req.body.rsvp
 		guest.ticket = req.body.ticket
+		guest.message = req.body.message
 		guest.save(function(err) {
 			if (err) 
 				res.send(err)
@@ -39,6 +40,7 @@ module.exports = function(app) {
 			if (err)
 				res.send(err)
 			guest.rsvp = req.body.rsvp
+			guest.message = req.body.message
 			guest.save(function(err) {
 				if (err)
 					res.send(err)
@@ -65,6 +67,6 @@ module.exports = function(app) {
 
 //UTILITY
 function pad(num, size) {     
-	return ('000' + num).substr(-size); 
+	return ('0000' + num).substr(-size); 
 }
 
