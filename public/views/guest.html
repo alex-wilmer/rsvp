@@ -9,10 +9,10 @@
     How: Arrive at 230 Queens Quay W to catch the private ferry<br>
     </p>
     <hr>
-    <button ng-show="guest.rsvp == 'pending'" ng-click="guest.rsvp = 'accepted'; save(guest)">
+    <button ng-show="guest.rsvp == 'pending'" ng-click="guest.rsvp = 'accepted'; save(guest);editMessage=true">
         <h2>Accept</h2>
     </button>
-    <button ng-show="guest.rsvp == 'pending'" ng-click="guest.rsvp = 'declined'; save(guest)">
+    <button ng-show="guest.rsvp == 'pending'" ng-click="guest.rsvp = 'declined'; save(guest);editMessage=true">
         <h2>Decline</h2>
     </button>
     <div ng-show="guest.rsvp != 'pending'">
