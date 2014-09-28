@@ -41,6 +41,7 @@ module.exports = function(app) {
 				res.send(err)
 			guest.rsvp = req.body.rsvp
 			guest.message = req.body.message
+			guest.party = req.body.party
 			guest.save(function(err) {
 				if (err)
 					res.send(err)
@@ -52,21 +53,21 @@ module.exports = function(app) {
 	app.delete('/api/guests/:guest_id', function(req, res) {
 		Guest.remove({_id: req.params.guest_id}, function(err, bear) {
 			if (err)
-				res.send(err);
-			res.json({ message: 'Successfully deleted.' });
-		});
+				res.send(err)
+			res.json({ message: 'Successfully deleted.' })
+		})
 	})
 
 	// frontend routes =========================================================
 	// route to handle all angular requests
 	app.get('*', function(req, res) {
 		res.sendfile('./public/views/index.html') // load our public/index.html file
-	});
+	})
 
-};
+}
 
 //UTILITY
 function pad(num, size) {     
-	return ('0000' + num).substr(-size); 
+	return ('0000' + num).substr(-size)
 }
 

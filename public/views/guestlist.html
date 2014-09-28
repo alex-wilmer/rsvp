@@ -23,6 +23,7 @@
         <tr>
             <th>Name</th>
             <th>RSVP</th>
+            <th>Additional Guests</th>
             <th>Message</th>
             <th>Ticket No.</th>
             <th>Delete</th>
@@ -38,6 +39,8 @@
                 </a>
             </td>
             <td>{{guest.rsvp | check}}</td>
+            <td ng-show="!!guest.party.length">{{guest.party.length}}</td>
+            <td ng-hide="!!guest.party.length"></td>
             <td>
                 <a ng-show="!!guest.message.length" ng-click="viewMessage(guest.message)">
                    view 

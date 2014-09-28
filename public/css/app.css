@@ -112,6 +112,10 @@ h2 {
   font-size: 2em;
   font-family: 'Poiret One';
 }
+p {
+  font-size: 1.5em;
+  font-family: 'Poiret One';
+}
 a {
   color: #fff;
   text-decoration: none;
@@ -134,7 +138,7 @@ a:hover {
 .inputs {
   float: right;
 }
-.inputs input {
+input {
   display: inline block;
   background-color: rgba(0,0,0,0.5);
   color: #fff;
@@ -143,16 +147,16 @@ a:hover {
   margin: 10px;
   font-size: 1.1em;
 }
-.inputs input::-webkit-input-placeholder {
+input::-webkit-input-placeholder {
   color: #fff;
 }
-.inputs input:-moz-placeholder {
+input:-moz-placeholder {
   color: #fff;
 }
-.inputs input::-moz-placeholder {
+input::-moz-placeholder {
   color: #fff;
 }
-.inputs input:-ms-input-placeholder {
+input:-ms-input-placeholder {
   color: #fff;
 }
 textarea {
@@ -179,7 +183,11 @@ th:nth-child(2),
 td:nth-child(3),
 th:nth-child(3),
 td:nth-child(4),
-th:nth-child(4) {
+th:nth-child(4),
+td:nth-child(5),
+th:nth-child(5),
+td:nth-child(6),
+th:nth-child(6) {
   text-align: center;
 }
 td:last-child,
