@@ -21,6 +21,7 @@ angular.module('GuestList', []).controller('GuestList', function($scope, $http) 
 
 		// update client
 		$scope.guests.push(guest)
+		$scope.totals = totals($scope.guests)
 
 		// update server
 		$http.post('/api/guests', guest).success(function() {
@@ -29,7 +30,10 @@ angular.module('GuestList', []).controller('GuestList', function($scope, $http) 
 	}
 
 	//remove a guest
-	$scope.remove = function(id) {
+	$scope.remove = function(index) {
+		id = $scope.guests[index]._id
+		$scope.guests.splice(index, 1)
+		$scope.totals = totals($scope.guests)
 
 		// update server
 		$http.delete('/api/guests/' + id).success(function() {
