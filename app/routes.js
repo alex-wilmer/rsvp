@@ -6,6 +6,11 @@ module.exports = function(app) {
 	// handle things like api calls
 	// authentication routes
 
+	app.get('/api/authenticate', function(req, res) {
+		if (req.body.password === 'password')
+			res.json({status: 'ok'})
+	})
+
 	app.get('/api/guests', function(req, res) {
 		Guest.find(function(err, guests) {
 			if (err)

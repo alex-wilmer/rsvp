@@ -95,7 +95,7 @@ body {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
-  color: #fff;
+  color: #e3e3e3;
   font-family: 'Helvetica';
 }
 .container {
@@ -117,7 +117,7 @@ p {
   font-family: 'Poiret One';
 }
 a {
-  color: #fff;
+  color: #e3e3e3;
   text-decoration: none;
   cursor: pointer;
 }
@@ -139,30 +139,29 @@ a:hover {
   float: right;
 }
 input {
-  display: inline block;
   background-color: rgba(0,0,0,0.5);
-  color: #fff;
-  border: 1px solid;
+  color: #e3e3e3;
+  border: solid 1px #e3e3e3;
   padding: 5px;
   margin: 10px;
   font-size: 1.1em;
 }
 input::-webkit-input-placeholder {
-  color: #fff;
+  color: #e3e3e3;
 }
 input:-moz-placeholder {
-  color: #fff;
+  color: #e3e3e3;
 }
 input::-moz-placeholder {
-  color: #fff;
+  color: #e3e3e3;
 }
 input:-ms-input-placeholder {
-  color: #fff;
+  color: #e3e3e3;
 }
 textarea {
   margin-top: 20px;
   background-color: rgba(0,0,0,0.5);
-  color: #fff;
+  color: #e3e3e3;
   width: 80%;
   height: 300px;
   font-size: 1.15em;
@@ -207,7 +206,7 @@ td {
   height: 425px;
   padding: 20px;
   background-color: rgba(0,0,0,0.8);
-  border: 2px solid #fff;
+  border: 2px solid #e3e3e3;
 }
 .absolute-center {
   margin: auto;
@@ -216,4 +215,12 @@ td {
   left: 0;
   bottom: 0;
   right: 0;
+}
+.row:hover {
+  background-color: rgba(19,51,153,0.5);
+  -webkit-transition: background-color 0.5s;
+  -moz-transition: background-color 0.5s;
+  -o-transition: background-color 0.5s;
+  -ms-transition: background-color 0.5s;
+  transition: background-color 0.5s;
 }

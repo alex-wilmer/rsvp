@@ -29,23 +29,10 @@
         </div>
     </div>
     <hr>
-	<form ng-submit="member(newMember)">
+	<form ng-submit="member(newMember); newMember=''">
 		<input class="inputs" ng-model="newMember" ng-focus="newMemberPh = ''" 
 		ng-blur="newMemberPh = 'Add a member to your party..'" placeholder="{{newMemberPh}}">
 	</form>
     <span style="float:left">Additional guests:</span>
-    <table>
-    <thead>
-    	<tr>
-    		<th>Name</th>
-    		<th>Status</th>
-    	</tr>
-    </thead>
-    <tbody>
-    	<tr ng-repeat="member in guest.party">
-    		<td>{{member.name}}</td>
-    		<td>{{member.status}}</td>
-    	</tr>
-    </tbody>
-    </table>
+    <div ng-repeat="member in guest.party">{{member.name}}</div>
 </div>

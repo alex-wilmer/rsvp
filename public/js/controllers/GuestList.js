@@ -1,4 +1,6 @@
-angular.module('GuestList', []).controller('GuestList', function($scope, $http) {
+angular.module('GuestList', []).controller('GuestList', function($scope, $http, $location, Authenticate) {
+
+	if (!Authenticate.logged) $location.path('/login')
 
 	$scope.newguest = "New guest.."
 	$scope.find = "Find.."
@@ -48,6 +50,15 @@ angular.module('GuestList', []).controller('GuestList', function($scope, $http) 
 
 	$scope.closeMessage = function() {
 		$scope.openMessage = false
+	}
+
+	$scope.viewParty = function(party) {
+		$scope.openParty = true
+		$scope.party = party
+	}
+
+	$scope.closeParty = function() {
+		$scope.openParty = false
 	}
 
 })

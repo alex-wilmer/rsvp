@@ -5,6 +5,10 @@ angular.module('Routes', [])
 			templateUrl: 'views/home.html',
 			controller: 'Home',
 		})
+		.when('/login', {
+			templateUrl: 'views/login.html',
+			controller: 'Login'
+		})
 		.when('/guestlist', {
 			templateUrl: 'views/guestlist.html',
 			controller: 'GuestList',

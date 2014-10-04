@@ -1,4 +1,4 @@
-<h1>guestlist</h1>
+<h1>Guestlist</h1>
 
 <div class="inputs">
     <form ng-submit="add(newGuest); newGuest = ''">
@@ -30,7 +30,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="guest in guests | 
+        <tr class="row" ng-repeat="guest in guests | 
                          orderBy: 'name' | 
                          filter: keyword">
             <td>
@@ -39,7 +39,9 @@
                 </a>
             </td>
             <td>{{guest.rsvp | check}}</td>
-            <td ng-show="!!guest.party.length">{{guest.party.length}}</td>
+            <td ng-show="!!guest.party.length">
+                <a ng-click="viewParty(guest.party)">{{guest.party.length}}</a>
+            </td>
             <td ng-hide="!!guest.party.length"></td>
             <td>
                 <a ng-show="!!guest.message.length" ng-click="viewMessage(guest.message)">
@@ -61,5 +63,16 @@
     <div class="inner-box absolute-center">
         <h2>Message</h2>
         <hr>{{message}}
+    </div>
+</div>
+
+<!--Alex's Lightbox-->
+<div class="outer-box absolute-center" ng-show="openParty" ng-click="closeParty()">
+    <div class="inner-box absolute-center">
+        <h2>Party members:</h2>
+        <hr>
+        <div ng-repeat="member in party">
+            {{member.name}} - {{member.status}}
+        </div>
     </div>
 </div>

@@ -16,6 +16,8 @@
 	<!-- ANGULAR CUSTOM -->
 	<script src="js/filters/check.js"></script>
 	<script src="js/controllers/Home.js"></script>
+	<script src="js/controllers/Login.js"></script>
+	<script src="js/services/Authenticate.js"></script>
 	<script src="js/controllers/GuestList.js"></script>
 	<script src="js/controllers/Guest.js"></script>
 	<script src="js/routes.js"></script>
@@ -24,7 +26,7 @@
 </head>
 <body ng-app="app">
 	<div class="container">
-		<div ng-view></div>
+		<div ng-view ng-cloak></div>
 	</div>
 </body>
 </html>
